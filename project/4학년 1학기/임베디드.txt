@@ -1,0 +1,249 @@
+#include <FND.h>
+#include "Switch.h"
+#include "RgbLcd.h"
+#include <RgbLed.h>
+#include <LED.h>
+
+RgbLed myrgbled;
+RgbLcd lcd;
+FND myfnd;
+Switch pushSwitch;
+LED myled;
+
+//p1
+byte right1[8]={B11111,B11111,B11111,B11111,B11111,B11111,B11111,B11111};
+byte right2[8]={B00000,B00000,B00000,B00000,B00000,B00000,B00000,B00000};
+//p2
+byte right3[8]={B11111,B11111,B11111,B11111,B11111,B11111,B11111,B11111};
+byte right4[8]={B00000,B00000,B00000,B00000,B00000,B00000,B00000,B00000};
+
+int num1=0;
+int whole1=0;
+int whole2=0;
+int ran1;
+int ran2;
+int turn = 0;
+
+
+void setup()
+{
+  myrgbled.begin(4,5,6);
+  myfnd.begin(38,32);
+  pushSwitch.begin();
+  myled.begin(36);
+  lcd.begin(62, 63, 64, 65, 66, 67, 45, 44, 43, 42, 16, 2);
+  
+  
+  myrgbled.OnRgb(0,0,0);
+  lcd.onBacklightGreen();
+  lcd.setCursor(3,0);
+  lcd.print("Let's Play  ");
+  lcd.setCursor(3,1);
+  lcd.print("Dice Game ");
+  
+  lcd.createChar(0,right1);
+  lcd.createChar(1,right2);
+  lcd.createChar(2,right3);
+  lcd.createChar(3,right4);
+}
+
+void loop()
+{
+  uint8_t pushKey = pushSwitch.waitGetPushKey();
+  if(turn == 0){
+      if(pushKey ==1 ){
+    lcd.onBacklightRed(0);
+    lcd.onBacklightGreen(0);
+    lcd.onBacklightBlue();
+    int Val=analogRead(0);
+    int ran1=Val%6+1; 
+    
+    myfnd.setAllNum(0,0,0,ran1);
+     whole1 += ran1;
+     
+     for(int a=0; a<16; a++){
+      for(int b=0; b<2; b++){
+      lcd.setCursor(a,b);
+      lcd.write(num1);
+      lcd.setCursor(a,b);
+      lcd.write(num1); 
+     } 
+    }
+  
+  if(whole1<=16){
+    for(int i=0; i<16; i++){
+        lcd.setCursor(i,0);
+        lcd.write(num1);
+      }
+     for(int j=16-whole1;j<16;j++){
+        lcd.setCursor(j,1);
+        lcd.write(1);
+     }
+
+  }
+  else if(whole1>16){
+    int sum=32-whole1;
+     for(int c=sum;c<16;c++){
+        lcd.setCursor(c,0);
+        lcd.write(1);
+     }
+     for(int d=0; d<16; d++){
+         lcd.setCursor(d,1);
+         lcd.write(1);
+      }
+
+  }
+  delay(1000);
+  turn = 1;
+ }else if(pushKey == 4) {
+
+     ran2 - 0;
+     whole2 = 0;
+     
+     lcd.onBacklightBlue(0);
+     lcd.onBacklightGreen(0);
+      lcd.onBacklightRed();
+   
+     for(int a=0; a<16; a++){
+      for(int b=0; b<2; b++){
+      lcd.setCursor(a,b);
+      lcd.write(2);
+      lcd.setCursor(a,b);
+      lcd.write(2); 
+      }
+  
+    }
+   turn = 0;
+   }
+  }
+  else if(turn == 1){
+    if(pushKey == 2){
+   lcd.onBacklightBlue(0);
+   lcd.onBacklightGreen(0);
+    lcd.onBacklightRed();
+    int Val2=analogRead(0);
+    int ran2=Val2%6+1; 
+    
+    myfnd.setAllNum(0,0,0,ran2);
+    whole2+=ran2;
+  
+  
+    for(int e=0; e<16; e++){
+      for(int f=0; f<2; f++){
+      lcd.setCursor(e,f);
+      lcd.write(2);
+      lcd.setCursor(e,f);
+      lcd.write(2); 
+     } 
+    }
+  
+  if(whole2<=16){
+    for(int g=0; g<16; g++){
+        lcd.setCursor(g,0);
+        lcd.write(2);
+      }
+     for(int h=16-whole2;h<16;h++){
+       lcd.setCursor(h,1);
+       lcd.write(3);
+     }
+  }
+  else if(whole2>16){
+    int sum2=32-whole2;
+     for(int z = sum2; z < 16 ; z++){
+       lcd.setCursor(z,0);
+       lcd.write(3);
+     }
+     for(int y=0; y<16; y++){
+        lcd.setCursor(y,1);
+        lcd.write(3);
+      }
+      
+    }
+    
+  delay(1000);
+  turn = 0;
+   }
+    else if(pushKey == 3){
+     whole1 = 0;
+     ran1 = 0;
+    
+     lcd.onBacklightRed(0);
+     lcd.onBacklightGreen(0);
+     lcd.onBacklightBlue();
+    
+    for(int a=0; a<16; a++){
+      for(int b=0; b<2; b++){
+      lcd.setCursor(a,b);
+      lcd.write(num1);
+      lcd.setCursor(a,b);
+      lcd.write(num1); 
+      }
+  
+    }
+    turn = 0;
+   }
+  }
+    
+
+   
+
+  if(whole1 >= 32){
+    for (int i = 0 ; i <=255 ; i++ ) {
+      myrgbled.OnRgb(0,0,i);
+     
+    }
+    for(int j=0; j<20; j++){
+     
+        myled.On(1);
+        myled.On(2);
+        myled.On(3);
+        myled.On(4);
+        myled.Off(5);
+        myled.Off(6);
+        myled.Off(7);
+        myled.Off(8);
+        delay( 300 );
+        
+        myled.Off(1);
+        myled.Off(2);
+        myled.Off(3);
+        myled.Off(4);
+        myled.On(5);
+        myled.On(6);
+        myled.On(7);
+        myled.On(8);
+        delay( 300 ); // 0.3초 시간 지연 
+        
+      
+    }
+  }
+  if(whole2 >= 32){
+     for (int i = 0 ; i <=255 ; i++ ) {
+      myrgbled.OnRgb(i,0,0);
+      
+    }
+     for(int j=0; j<20; j++){
+     
+        myled.On(1);
+        myled.On(2);
+        myled.On(3);
+        myled.On(4);
+        myled.Off(5);
+        myled.Off(6);
+        myled.Off(7);
+        myled.Off(8);
+        delay( 300 );
+        
+        myled.Off(1);
+        myled.Off(2);
+        myled.Off(3);
+        myled.Off(4);
+        myled.On(5);
+        myled.On(6);
+        myled.On(7);
+        myled.On(8);
+        delay( 300 ); // 0.3초 시간 지연 
+      
+    }
+  }
+}

@@ -1,0 +1,29 @@
+1) sudo apt update
+kali 최신 정보들을 업데이트 한다
+
+2) ifconfig
+host 주소 및 netmask 확인
+
+3) sudo dhclinet
+dhcp 재할당 명령어
+
+4 cat > test.txt
+입력 하는것을 test.txt 보내겠다
+덮어쓴다
+
+5. cat >> test.txt
+이어서 붙여 쓴다
+
+6. cat
+텍스트 파일을 읽거나 쓸때 (앞에서부터 읽을때)
+
+7. tail
+뒤어세부터 읽을때
+
+8. vim 
+메모장 같은거
+
+
+
+
+

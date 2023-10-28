@@ -1,0 +1,5 @@
+1. 리눅스 복사 붙여넣기 명령어
+apt-get install open-vm-tools open-vm-tools-desktop
+
+2. 파일 복사
+1. 칼리 리눅스 폴더에 복사/붙여넣기

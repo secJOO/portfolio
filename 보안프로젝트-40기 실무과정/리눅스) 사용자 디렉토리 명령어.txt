@@ -1,0 +1,39 @@
+1) id
+uid gid groups 
+권한 정보를 알 수 있음
+
+2) pwd
+현재 어디에 위치해 있는지 확인
+
+3) ls
+파일 목록 확인
+
+4) ls -al
+모든 파일 목록 정보를 확인 (숨겨진거 까지)
+
+5) sudo
+관리자 권한으로 명령어 실행
+
+6) sudo su -
+root 권한으로 전환
+
+7) cd
+디렉토리 이동
+
+8)/home
+home 디렉토리는 등록된 사용자 아이디 확인 가능
+
+9) useradd -d /home/kali2 -m kali2
+사용자 추가 디렉토리 /home/kali2 kali2 아이디 등록
+
+10) passwd kali2
+kali2 유저에 패스워드 추가 
+
+11) sudo usermod -a -G sudo kali2
+루트권한으로 sudo 권한을 kali2애 추가한다.
+
+12) sudo chsh -s /bin/bash kali2
+사용자 쉘을 /bin/bash 로 변경한다.
+
+13
+

@@ -1,0 +1,5 @@
+1. sudo apt update //앞으로 사용할 저장소들을 업데이트
+2. sudo apt install fcitx-hangul
+3. sudo apt install fcitx-lib*
+4. sudo apt install fonts-nanum*
+5. reboot

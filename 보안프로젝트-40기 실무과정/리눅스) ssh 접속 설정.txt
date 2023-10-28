@@ -1,0 +1,30 @@
+1) sudo service ssh start
+ssh 서비스 스타트
+
+2) 접속 방법 리눅스 cmd 창에서
+ssh kali@192.168.233.10
+
+3) sudo apt-get update
+
+4) cd /etc/
+
+5) sudo service vsftpd start
+
+6) sudo nmap 192.168.233.10 
+서비스 열려있는거 확인
+
+7) ftp 192.168.233.10
+ftp 연결접속방법
+
+8) sudo vim vsftpd.conf
+ftp 설정파일
+
+9) anonymous - yes로
+anon_root=/home/kali/
+
+10) sudo service vsftpd restart
+
+그리고 다시접속
+
+11. dir 
+12. pwd

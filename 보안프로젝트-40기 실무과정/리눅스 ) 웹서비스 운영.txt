@@ -1,0 +1,14 @@
+1) sudo apt install apache2
+웹서비스 아파치2 설치
+
+2) sudo service apache2 start
+아파치2 서비스 스타트
+
+3) sudo netstat -na
+- 리슨 확인하려고
+
+4) /var/log/apache2
+로그파일 여기있음
+
+5) rm -rf 
+삭제

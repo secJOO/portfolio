@@ -1,0 +1,16 @@
+1) sudo locate ftp 
+ftp 관련된 디렉토리를 보여준다
+
+2) sudo find / -name "ftp"
+ftp 가 포함된 파일이나 디렉토리 보여줌
+
+3) sudo find / -type d -name "ftp"
+ftp가 포함된 디렉토리만 찾아줌
+
+4) sudo find /home -user kali -name "*.txt"
+홈 디렉토리에 유저가 kali인 확장자가 txt인 파일들 찾아줌
+
+5) sudo find / -mtime +7 -name "*.txt"
+7일이내 수정된 파일들
+
+6) sudo updatedb

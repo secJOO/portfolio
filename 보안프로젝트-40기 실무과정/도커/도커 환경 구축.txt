@@ -1,0 +1,130 @@
+컨테이너:컨테이너
+도커:항만 노동자
+쿠버네티스 : 항해자
+
+sudo docker images //이미지 다운로드 목록
+sudo docker run -itd -p 80:80 --name=webapp nginx
+
+-모든 컨테이너는 해쉬값으로 나옴
+
+ps로 실행중인 프로세스 확인
+
+
+1)
+
+도커 데이터베이스 구축
+┌──(kali㉿kali)-[~]
+└─$ sudo docker run -it --name=mysql00 \
+-e MYSQL_ROOT_PASSWORD=test \
+-e MYSQL_DATABASE=test \ 
+> -v mysql-vol00:/var/lib/mysql -d \
+> mysql:5.7
+
+
+2)
+
+도커 네트워크 구축
+
+ sudo docker run -it -d --name ubuntu_net01 ubuntu //이미지생성
+
+sudo docker run -it -d --name ubuntu_net02 ubuntu
+
+┌──(root㉿kali)-[~]
+└─# sudo docker run -it -d --name ubuntu_net02 ubuntu
+318292b786934e138d1a2647d595519bb3105ca0676483d24b118d9376630214
+                                                                                                                    
+┌──(root㉿kali)-[~]
+└─# sudo docker inspect ubuntu_net01 | grep IPAdd
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.3",
+                    "IPAddress": "172.17.0.3",
+                                                                                                                    
+┌──(root㉿kali)-[~]
+└─# sudo docker inspect ubuntu_net02 | grep IPAdd
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.4",
+                    "IPAddress": "172.17.0.4",
+                                 
+
+
+sudo docker exec -it ubuntu_net01 bash
+장비접속후
+apt update
+apt install net-tools
+
+
+
+curl 은 머야?
+클라이언트에서 커맨드 라인이나 소스코드로 손 쉽게 웹 브라우저 처럼 활동할수 있도록 해주는 기술
+
+
+
+
+
+sudo docker network create web-net01 // 도커로 네트워크환경 구축
+sudo docker network ls 		// 네트워크 상태 확인
+
+-------------------------------------------------------------------
+
+
+
+sudo docker run -it -d --name=ngnix_web01 -v web01:/usr/share/nginx/html -p 8000:80 nginx
+
+sudo docker run -it -d --name=ngnix_web01 -v web01:/usr/share/nginx/html -p 8000:80 nginx
+
+//컨테이너로 만들어 운영하는것
+
+
+sudo service nginx start
+
+//웹서버 시작
+
+sudo vim /etc/nginx/nginx.conf 
+
+//nginx conf 파일
+
+
+https://cafe.naver.com/bppentest/book5109610/943
+
+code 해당 페이지 참고
+
+
+
+도커 삭제
+
+동작중인 컨테이너 확인
+docker ps
+
+컨테이너 삭제
+docker rm [컨테이너 id]
+
+--------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
