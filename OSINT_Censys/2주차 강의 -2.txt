@@ -1,0 +1,116 @@
+leaklooker 이용한 DB 정보 수집
+
+apt-get update
+apt-get install python3-pip
+
+pip3 install colorama //결과값들을 색적용하는것
+
+pip3 install hurry.filesize
+
+git clone leaklookerURL
+
+cd LeakLooker/
+
+vim leaklooker.py
+
+	이제 쿼리문을 이용
+
+	SHODAN_API_KEY=' 쇼단키 입력' 
+
+python3 leaklooker.py  //맄루커실행
+
+
+python3 leaklooker.py --mongodb --couchdb --kibana --elastic --first 2 --last 4 //db 정보들의 예쁘게 보임
+
+----------------------------------------------------------
+
+censys 검색 서비스 이해
+
+사이트: censys.io
+
+쇼단보다 깔끔하게 나오고 검색단어까지 알려줌
+
+
+*칼리에서 Censys 사용하기
+
+censys 입력
+y 이후 kali
+
+censys config //censys 설치이후 config API 연동
+
+sudo vim python_censys01.py
+
+	from censys.search import CensysHosts
+
+	h = CensysHosts()
+
+	query = h.search("Service.service_name:HTTP", per_page=5)
+
+	print(query())
+
+
+python3 python_censys01.py //실행
+
+
+
+-------------------------------------------------
+
+
+기타 보안 API 활용
+
+1) Quttera -URL 평판 제공 서비스 (https://quttera.com)
+
+	- 여러 보안 API를 활용하여 의심되는 도메인 여부를 판단
+
+2) Safebrowsing - 의심 사이트 여부 확인 (https://safebrowsing.google.com)
+
+	- 피싱 사이트 악성코드로 사용되는 사이트 여부 확인
+
+https://github.com/ninoseki/mitaka 많은 정보가 있음 참고 (mitaka 확장 프로그램 크롬)
+
+-------------------------------------------
+
+구글 해킹 이용한 정보 수집
+
+GoFuzz 오픈도구 활용하기
+
+*명령어 sudo git https://github.com/m3n0sd0n4ld/GooFuzz.git
+
+cd GooFuzz
+
+sudo chmod +x GooFuzz
+
+./GooFuzz -h
+
+구글해킹으로 통해 사이트 취약점을 알수 있음
+
+-----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

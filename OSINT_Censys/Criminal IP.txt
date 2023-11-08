@@ -1,0 +1,49 @@
+Criminal IP OSINT 서비스 소개
+
+https://www.criminalip.io/ko		//한국형 쇼단
+
+장점 : 한국어 검색이 가능
+        거의 무료, 데이터 조회 무한대
+
+
+-------------------------------------------
+
+Criminal IP 파이썬 API 도구 활용
+
+sudo su -
+
+python3 -m pip install pipx
+
+get clone https://github.com/ChoiSG/criminalip-python.git
+
+cd criminalip-python
+
+pipx install .
+
+apt install python3.10-venv
+
+pipx install .
+
+오류시 지웠다가 다시
+pipx uninstall criminalip-python
+
+
+cip init APIKEY
+
+cip -h
+
+
+
+--------------------------------------------
+
+기타 웹 해킹사이트 자료
+https://geekflare.com/practice-hacking-legally/
+
+타이틀 검색 사례
+
+https://www.criminalip.io/ko/login?h2=/asset/search?query=title%3Advwa&msg=login_required
+
+
+
+
+

@@ -1,0 +1,106 @@
+whois - ip주소가 국내인지 해외인지 확인할때
+
+fierce - 도메인정보를 확인할 때
+
+Netdiscover 는 ARP(Address Resolution Protocol)을 활용하여 네트워크 세그먼트에서 연결된 클라이언트를 검색하는 스캐너
+
+- 무선 AP에 접속한 뒤 근접 네트워크 실시간 수집
+
+
+2. 크롤링(crawl)
+
+- 웹 페이지를 그대로 복사해놓은거
+
+*명령어 
+
+그전에 
+sudo apt update
+sudo apt install httrack 설치
+httrack
+
+
+3. Archive wayback Machine
+비영리 디지털  도서관
+archive.org
+오래전에 크롤링된 사이트를 볼 수 있는곳
+https://www.halla.ac.kr 식으로 검색
+
+
+
+4. OSINT 란 ?
+
+OSINT은 "Open Source Intelligence"의 약어로, 공개된 소스로부터 정보를 수집하고 분석하는 정보 수집 기술을 가리킵니다. 이는 공개된 인터넷 소스, 텍스트, 이미지, 동영상, 소셜 미디어, 뉴스 기사, 공공 레코드 등과 같은 공개적인 출처에서 얻은 정보를 사용하여 지능적인 분석을 하는 활동을 의미합니다.
+
+
+
+5.Shodan 쇼단!
+
+"Shodan"은 전 세계의 인터넷에 연결된 디바이스와 시스템을 검색하고 정보를 수집하는 데 사용되는 검색 엔진입니다. Shodan은 인터넷에 연결된 다양한 디바이스들의 보안 설정, 프로토콜, 포트 상태 등과 관련된 정보를 제공합니다. 이러한 정보는 보안 전문가, 해커, 시스템 관리자 등이 네트워크 취약점을 탐지하고 보안을 강화하는 데 사용할 수 있습니다.
+
+Shodan은 주로 사이버 보안 전문가들이 네트워크 보안 취약점을 찾고 분석하는 데 사용됩니다. 그러나 이 도구는 합법적인 보안 연구 및 모니터링 목적으로 사용되어야 하며, 불법적인 활동이나 타인의 프라이버시를 침해하는 데 사용해서는 안 됩니다. 또한, Shodan을 사용할 때에는 해당 국가 또는 지역의 법과 규정을 준수해야 합니다.
+
+shodan.io
+
+
+쇼단을 사용하면 nmap이라든가 취약점 찾기위해 도구 사용할 필요없이 필요 정보들을 얻어낼수있음
+
+
+
+6. 파이썬 환경 2, 3 버전 같이 사용하려면?
+
+기본적으로 파이썬 3이 깔려있다. 그래서 프로젝트b에서 파이썬 2를 사용하려면 파이썬 3 환경안에 파이썬 2를 가상환경을 설치해야함
+
+
+*명령어
+
+sudo apt-get update
+
+sudo apt install virtualenv //가상환경을 설치하는패키지
+
+sudo virtualenv py2.7 --python=python2.7
+
+cd py2.7
+
+cd bin
+
+source activate
+
+그러면 py2.7 공간으로 들어옴
+
+sudo pip install shodan	//쇼단을 파이썬에 설치
+
+deactivate //py2.7 가상환경 밖으로 나가는 명령어
+
+
+tqonHOYKXvwAxasoVPbNszCl6GgVy3Tw
+
+
+
+7) 파이썬 설치하기
+
+sudo pip or pip
+
+pip install shodan
+
+account에 apikey가 있음
+
+shodan init tqonHOYKXvwAxasoVPbNszCl6GgVy3Tw // 웹에 있는걸 콘솔로 사용한다는 의미
+
+shodan host --history ip
+
+
+
+과제 : 1) 쇼단 홈페이지 회원가입
+
+2) 쇼단을 이용한 scan해보기
+
+3) 쇼단 콘솔을 이용한 검색하기 -stats
+ a)SMB 취약점이 있을것이라 판단 되는 통계를 OS기준으로 출력하시오
+ b))취약점넘버 'ms-17-010' SMB취약점, port 445 출력하시오
+
+4)한국에서 제일 많이 사용하는 포트를 순서대로 출력하세요
+
+5)여려분들의 원하는 서버 대역의 오픈된 포트를 순서대로 출력하세요
+
+
+
